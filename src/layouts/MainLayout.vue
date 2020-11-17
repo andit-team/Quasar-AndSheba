@@ -1,6 +1,6 @@
 <template>
-  <q-layout view="hHh lpR fFf" class="bg-grey-1">
-    <q-header elevated class="bg-white text-grey-8 q-py-xs" height-hint="58">
+  <q-layout view="hHh lpR fFf">
+    <q-header :class="[$q.screen.gt.sm ? 'q-pa-md' : 'q-pa-sm',  'bg-white', 'text-grey-8']" height-hint="58">
       <q-toolbar>
         <q-btn
           flat
@@ -9,52 +9,53 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
           icon="menu"
+          v-if="!$q.screen.gt.sm"
         />
 
-        <q-btn flat no-caps no-wrap class="q-ml-xs" v-if="$q.screen.gt.xs">
-          <q-icon name="whatshot" color="red" size="28px" />
-          <q-toolbar-title shrink class="text-weight-bold">
-            AndSheba
-          </q-toolbar-title>
+        <q-btn flat no-caps no-wrap class="q-ml-xs" >
+          <img src="https://andsheba.com/_nuxt/img/logo.0f218c1.png">
         </q-btn>
 
-        <q-space />
+        <q-space v-if="!$q.screen.gt.sm"/>
 
-        <div class="YL__toolbar-input-container row no-wrap">
-          <q-input dense outlined square v-model="search" placeholder="Search" class="bg-white col" />
+        <div :class="['YL__toolbar-input-container row', $q.screen.gt.sm ? 'q-ml-lg' : 'q-ml-xs' ]">
+          <q-input dense outlined square v-model="search" placeholder="Search services..." class="bg-white col" />
           <q-btn class="YL__toolbar-input-btn" color="grey-3" text-color="grey-8" icon="search" unelevated />
         </div>
+        <q-space v-if="$q.screen.gt.sm"/>
 
-        <q-space />
+        <div class="q-gutter-md row items-center no-wrap q-mr-lg" v-if="$q.screen.gt.sm">
+          <q-btn  flat color="grey-8" icon="search"> সেবা খুজুন</q-btn>
 
-        <div class="q-gutter-sm row items-center no-wrap">
-          <q-btn round dense flat color="grey-8" icon="video_call" v-if="$q.screen.gt.sm">
-            <q-tooltip>Create a video or post</q-tooltip>
-          </q-btn>
-          <q-btn round dense flat color="grey-8" icon="apps" v-if="$q.screen.gt.sm">
-            <q-tooltip>Apps</q-tooltip>
-          </q-btn>
-          <q-btn round dense flat color="grey-8" icon="message" v-if="$q.screen.gt.sm">
-            <q-tooltip>Messages</q-tooltip>
-          </q-btn>
-          <q-btn round dense flat color="grey-8" icon="notifications">
-            <q-badge color="red" text-color="white" floating>
-              2
-            </q-badge>
-            <q-tooltip>Notifications</q-tooltip>
-          </q-btn>
-          <q-btn round flat>
+          <q-btn  flat color="grey-8" icon="add"> রেজিস্ট্রেশন</q-btn>
+          <q-btn  flat color="grey-8" icon="person"> লগ ইন</q-btn>
+          <q-btn-dropdown flat icon="web" olor="grey-8" label="ভাষা">
+            <q-list>
+              <q-item clickable v-close-popup>
+                <q-item-section>
+                  <q-item-label>বাংলা</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-item clickable v-close-popup>
+                <q-item-section>
+                  <q-item-label>ইংলিশ</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+          <!--<q-btn round flat>
             <q-avatar size="26px">
               <img src="https://cdn.quasar.dev/img/boy-avatar.png">
             </q-avatar>
             <q-tooltip>Account</q-tooltip>
-          </q-btn>
+          </q-btn> -->
         </div>
       </q-toolbar>
     </q-header>
-
     <q-drawer
       v-model="leftDrawerOpen"
+      v-if="leftDrawerOpen"
       show-if-above
       bordered
       content-class="bg-grey-2"
@@ -62,7 +63,16 @@
     >
       <q-scroll-area class="fit">
         <q-list padding>
-          <q-item v-for="link in common" :key="link.text" v-ripple clickable>
+        <q-img src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
+          <div class="absolute-bottom bg-transparent">
+            <q-avatar size="56px" class="q-mb-sm">
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+            </q-avatar>
+            <div class="text-weight-bold">Razvan Stoenescu</div>
+            <div>@rstoenescu</div>
+          </div>
+        </q-img>
+          <q-item v-for="link in withLogin" :key="link.text" v-ripple clickable>
             <q-item-section avatar>
               <q-icon color="grey" :name="link.icon" />
             </q-item-section>
@@ -75,7 +85,7 @@
           <q-item-label header class="text-weight-bold text-uppercase">
             Customer
           </q-item-label>
-          <q-item v-for="link in pro" :key="link.text" v-ripple clickable>
+          <q-item v-for="link in customer" :key="link.text" v-ripple clickable>
             <q-item-section avatar>
               <q-icon color="grey" :name="link.icon" />
             </q-item-section>
@@ -90,7 +100,7 @@
             Profesionals
           </q-item-label>
 
-          <q-item v-for="link in customer" :key="link.text" v-ripple clickable>
+          <q-item v-for="link in pro" :key="link.text" v-ripple clickable>
             <q-item-section avatar>
               <q-icon color="grey" :name="link.icon" />
             </q-item-section>
@@ -100,8 +110,10 @@
           </q-item>
 
           <q-separator class="q-my-md" />
-
-          <q-item v-for="link in admin" :key="link.text" v-ripple clickable>
+          <q-item-label header class="text-weight-bold text-uppercase">
+            General
+          </q-item-label>
+          <q-item v-for="link in withOutLogin" :key="link.text" v-ripple clickable>
             <q-item-section avatar>
               <q-icon color="grey" :name="link.icon" />
             </q-item-section>
@@ -127,28 +139,29 @@ export default {
     return {
       leftDrawerOpen: false,
       search: '',
-      common: [
-        { icon: 'home', text: 'Home' },
-        { icon: 'whatshot', text: 'Trending' },
-        { icon: 'subscriptions', text: 'Subscriptions' }
+      withLogin: [
+        { icon: 'dashboard', text: 'Dashboard' },
+        { icon: 'person', text: 'Profile' },
+        { icon: 'mail', text: 'Inbox' },
+        { icon: 'alarm', text: 'Notification' },
       ],
-      pro: [
-        { icon: 'folder', text: 'Library' },
-        { icon: 'restore', text: 'History' },
-        { icon: 'watch_later', text: 'Watch later' },
-        { icon: 'thumb_up_alt', text: 'Liked videos' }
+      withOutLogin: [
+        { icon: 'search', text: 'Search' },
+        { icon: 'add', text: 'Registration' },
+        { icon: 'lock', text: 'Login' },
+        { icon: 'web', text: 'Language' }
       ],
       customer: [
-        { icon: fabYoutube, text: 'YouTube Premium' },
-        { icon: 'local_movies', text: 'Movies & Shows' },
-        { icon: 'videogame_asset', text: 'Gaming' },
-        { icon: 'live_tv', text: 'Live' }
+        { icon: 'book', text: 'My Orders' },
+        { icon: 'star', text: 'My Favorites' },
+        { icon: 'videogame_asset', text: 'Payments' },
+        { icon: 'settings', text: 'Settings' }
       ],
-      admin: [
-        { icon: 'settings', text: 'Settings' },
-        { icon: 'flag', text: 'Report history' },
-        { icon: 'help', text: 'Help' },
-        { icon: 'feedback', text: 'Send feedback' }
+      pro: [
+        { icon: 'add', text: 'Add Service' },
+        { icon: 'flag', text: 'Order history' },
+        { icon: 'help', text: 'Payments' },
+        { icon: 'money', text: 'Accounts' }
       ]
     }
   },
@@ -162,7 +175,7 @@ export default {
 .YL
   &__toolbar-input-container
     min-width: 100px
-    width: 55%
+    width: 30%
   &__toolbar-input-btn
     border-radius: 0
     border-style: solid
