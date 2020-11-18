@@ -12,7 +12,7 @@
           v-if="!$q.screen.gt.sm"
         />
 
-        <q-btn flat no-caps no-wrap class="q-ml-xs" >
+        <q-btn flat no-caps no-wrap class="q-ml-xs" to="/">
           <img src="https://andsheba.com/_nuxt/img/logo.0f218c1.png">
         </q-btn>
 
@@ -25,10 +25,10 @@
         <q-space v-if="$q.screen.gt.sm"/>
 
         <div class="q-gutter-md row items-center no-wrap q-mr-lg" v-if="$q.screen.gt.sm">
-          <q-btn  flat color="grey-8" icon="search"> সেবা খুজুন</q-btn>
+          <q-btn  flat color="grey-8" icon="search" to="service"> সেবা খুজুন</q-btn>
 
-          <q-btn  flat color="grey-8" icon="add"> রেজিস্ট্রেশন</q-btn>
-          <q-btn  flat color="grey-8" icon="person"> লগ ইন</q-btn>
+          <q-btn  flat color="grey-8" icon="add" to="register"> রেজিস্ট্রেশন</q-btn>
+          <q-btn  flat color="grey-8" icon="person" to="login"> লগ ইন</q-btn>
           <q-btn-dropdown flat icon="web" olor="grey-8" label="ভাষা">
             <q-list>
               <q-item clickable v-close-popup>
@@ -72,7 +72,7 @@
             <div>@rstoenescu</div>
           </div>
         </q-img>
-          <q-item v-for="link in withLogin" :key="link.text" v-ripple clickable>
+          <q-item v-for="link in withLogin" :key="link.text" :to="link.route" v-ripple clickable>
             <q-item-section avatar>
               <q-icon color="grey" :name="link.icon" />
             </q-item-section>
@@ -85,7 +85,7 @@
           <q-item-label header class="text-weight-bold text-uppercase">
             Customer
           </q-item-label>
-          <q-item v-for="link in customer" :key="link.text" v-ripple clickable>
+          <q-item v-for="link in customer" :key="link.text" :to="link.route" v-ripple clickable>
             <q-item-section avatar>
               <q-icon color="grey" :name="link.icon" />
             </q-item-section>
@@ -100,7 +100,7 @@
             Profesionals
           </q-item-label>
 
-          <q-item v-for="link in pro" :key="link.text" v-ripple clickable>
+          <q-item v-for="link in pro" :key="link.text" :to="link.route" v-ripple clickable>
             <q-item-section avatar>
               <q-icon color="grey" :name="link.icon" />
             </q-item-section>
@@ -113,7 +113,7 @@
           <q-item-label header class="text-weight-bold text-uppercase">
             General
           </q-item-label>
-          <q-item v-for="link in withOutLogin" :key="link.text" v-ripple clickable>
+          <q-item v-for="link in withOutLogin" :key="link.text" :to="link.route" v-ripple clickable>
             <q-item-section avatar>
               <q-icon color="grey" :name="link.icon" />
             </q-item-section>
@@ -140,28 +140,28 @@ export default {
       leftDrawerOpen: false,
       search: '',
       withLogin: [
-        { icon: 'dashboard', text: 'Dashboard' },
-        { icon: 'person', text: 'Profile' },
-        { icon: 'mail', text: 'Inbox' },
-        { icon: 'alarm', text: 'Notification' },
+        { icon: 'dashboard', text: 'Dashboard', route: '/' },
+        { icon: 'person', text: 'Profile', route: '/profile' },
+        { icon: 'mail', text: 'Inbox', route: '/inbox' },
+        { icon: 'alarm', text: 'Notification', route: '/notification' },
       ],
       withOutLogin: [
-        { icon: 'search', text: 'Search' },
-        { icon: 'add', text: 'Registration' },
-        { icon: 'lock', text: 'Login' },
-        { icon: 'web', text: 'Language' }
+        { icon: 'search', text: 'Search', route: '/service' },
+        { icon: 'add', text: 'Registration', route: '/register' },
+        { icon: 'lock', text: 'Login', route: '/login' },
+        { icon: 'web', text: 'Language', route: '/' }
       ],
       customer: [
-        { icon: 'book', text: 'My Orders' },
-        { icon: 'star', text: 'My Favorites' },
-        { icon: 'videogame_asset', text: 'Payments' },
-        { icon: 'settings', text: 'Settings' }
+        { icon: 'book', text: 'My Orders', route: '/' },
+        { icon: 'star', text: 'My Favorites', route: '/' },
+        { icon: 'videogame_asset', text: 'Payments', route: '/' },
+        { icon: 'settings', text: 'Settings', route: '/' }
       ],
       pro: [
-        { icon: 'add', text: 'Add Service' },
-        { icon: 'flag', text: 'Order history' },
-        { icon: 'help', text: 'Payments' },
-        { icon: 'money', text: 'Accounts' }
+        { icon: 'add', text: 'Add Service', route: '/' },
+        { icon: 'flag', text: 'Order history', route: '/' },
+        { icon: 'help', text: 'Payments', route: '/' },
+        { icon: 'money', text: 'Accounts', route: '/' }
       ]
     }
   },
