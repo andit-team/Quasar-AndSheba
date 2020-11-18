@@ -3,7 +3,7 @@
     <!-- Banner -->
     <div class="flex flex-center">
       <div class="row">
-        <div id="parent" class="full-width row " >
+        <div id="parent" class="full-width row" >
           <!-- `Banner Left Search -->
           <div :class="[$q.screen.gt.sm ? '' : 'q-mt-xl q-mb-xl', 'flex column col-md-7 col-sm-12 justify-center' ]">
             <p :class="[$q.screen.gt.sm ? 'text-h5' : 'text-h6 text-center']">আপনার স্থানীয় পেশাদারদের খুঁজুন</p>
@@ -25,15 +25,19 @@
     </div>
     <!-- Slider Top Services -->
     <nearest-top />
+    <!-- App Slider -->
+    <app-slider />
     </q-page>
 </template>
 
 <script>
 import NearestTop from 'components/sliders/NearestTop'
+import AppSlider from 'src/components/sliders/AppSlider.vue';
 export default {
   name: "PageIndex",
   components:{
-    NearestTop
+    NearestTop,
+    AppSlider,
   }
 };
 </script>

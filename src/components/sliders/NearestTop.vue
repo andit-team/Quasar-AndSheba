@@ -1,5 +1,5 @@
 <template>
-    <div class="full-width inline column justify-center items-center content-center q-pa-xl bg-grey-1">
+    <div class="full-width inline column justify-center items-center content-center q-pa-xl bg-grey-2">
       <p class="text-h5 q-mb-xl">আপনার এলাকার জনপ্রিয় সেবা সমুহ</p>
       <div class="row q-gutter-lg">
         <q-card class="col my-card">
