@@ -5,7 +5,7 @@
     <q-card class="my-card col-md-4 col-sm-8 col-xs-10 q-pa-md q-mt-xl">
      <q-card-section class="column items-center content-center">
         <div class="text-h5">আপনার অ্যাকাউন্ট খুলুন</div>
-        <div class="text-subtitle1">REGISTER</div>
+        <div class="text-subtitle1">REGISTER NOW</div>
       </q-card-section>
 
       <q-separator dark inset />
