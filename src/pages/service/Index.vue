@@ -40,16 +40,16 @@
               consequatur consequuntur modi neque unde!
             </div>
             <div class="text-subtitle3 q-mt-sm">
-               <q-icon name="place" size="sm"/> 32 Choto Mirzapur, Khulna, Bangladesh
+               <q-icon name="place" size="xs"/> 32 Choto Mirzapur, Khulna, Bangladesh
             </div>
-            <q-card-section>
+            <div class="text-subtitle3 q-mt-sm">
+               <q-icon name="favorite" size="xs"/> Hired <span>22</span> Times
+            </div>
             
-            </q-card-section>
           </q-card-section>
 
-          <q-separator vertical />
 
-          <q-card-section >
+          <q-card-section class="col-3 column justify-center items-center" >
             <div class="text-h2">BDT</div>
             <div class="text-h5">80 TK / Day</div>
             <div class="text-h6">(আনুমানিক খরচ)</div>
@@ -62,12 +62,14 @@
           <q-item class="col-4">
             <q-item-section avatar>
               <q-avatar>
+                <div class="absolute bg-green" style="right: 0px;transform: translateY(-50%);width: 12px;height: 12px;bottom: -8px;border-radius: inherit;"></div>
                 <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
               </q-avatar>
             </q-item-section>
 
             <q-item-section>
               <q-item-label>Shariful Islam</q-item-label>
+              
               <q-item-label caption>
                 Professional Plumber
               </q-item-label>
