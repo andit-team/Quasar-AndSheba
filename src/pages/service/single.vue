@@ -4,7 +4,7 @@
       <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="text-h6 q-mb-xs">Home Garden Cleanning</div>
         <div class="row no-wrap items-center q-pb-md">
-          <q-rating size="28px" v-model="stars" :max="5" color="red" />
+          <q-rating size="28px" :max="5" color="red" />
           <span class="text-caption text-grey q-ml-sm">4.2 (551)</span>
           <span class="text-caption text-red q-ml-sm">6 Orders in Queue</span>
         </div>
