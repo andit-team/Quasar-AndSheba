@@ -16,6 +16,7 @@ const routes = [
       { path: '', component: () => import('pages/service/Index.vue') },
       { path: 'add', component: () => import('pages/service/Add.vue') },
       { path: 'single', component: () => import('pages/service/single.vue') },
+      { path: 'quote', component: () => import('pages/service/cost_calc.vue') },
     ]
   },
   // Always leave this as last one,

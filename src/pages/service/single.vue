@@ -107,7 +107,7 @@
 
           <q-card-actions>
             <q-btn flat round icon="event" />
-            <q-btn flat color="primary">
+            <q-btn flat color="primary" to="quote">
               Request for Quote
             </q-btn>
           </q-card-actions>
