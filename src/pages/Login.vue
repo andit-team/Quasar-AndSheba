@@ -38,7 +38,7 @@
             <q-toggle v-model="accept" label="Remember me" />
 
             <div>
-              <q-btn label="Login" type="submit" color="primary" />
+              <q-btn label="Login" to="user" type="submit" color="primary" />
               <q-btn
                 label="register"
                 type="reset"

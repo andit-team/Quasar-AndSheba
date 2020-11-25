@@ -19,6 +19,14 @@ const routes = [
       { path: 'quote', component: () => import('pages/service/cost_calc.vue') },
     ]
   },
+  {
+    path: '/user',
+    component: () => import('layouts/UserDash.vue'),
+    children: [
+      { path: '', component: () => import('pages/user/Dashboard.vue') },
+      { path: 'dashboard', component: () => import('pages/user/Dashboard.vue') },
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

@@ -44,12 +44,15 @@
               </q-item>
             </q-list>
           </q-btn-dropdown>
-          <!--<q-btn round flat>
+          <q-btn round flat>
             <q-avatar size="26px">
               <img src="https://cdn.quasar.dev/img/boy-avatar.png">
             </q-avatar>
-            <q-tooltip>Account</q-tooltip>
-          </q-btn> -->
+            <q-tooltip>
+              <q-btn  flat color="grey-8" icon="add" to="register"> রেজিস্ট্রেশন</q-btn>
+          <q-btn  flat color="grey-8" icon="person" to="login"> লগ ইন</q-btn>
+            </q-tooltip>
+          </q-btn>
         </div>
       </q-toolbar>
     </q-header>
