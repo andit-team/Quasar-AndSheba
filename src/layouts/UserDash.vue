@@ -28,7 +28,7 @@
         <div
           :class="[
             'YL__toolbar-input-container row',
-            $q.screen.gt.sm ? 'q-ml-lg' : 'q-ml-xs'
+            $q.screen.gt.sm ? 'q-ml-lg' : 'q-ml-xs fit'
           ]"
         >
           <q-input
@@ -76,12 +76,12 @@
               </q-item>
             </q-list>
           </q-btn-dropdown>
-          <!--<q-btn round flat>
+          <q-btn round flat>
             <q-avatar size="26px">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
             </q-avatar>
             <q-tooltip>Account</q-tooltip>
-          </q-btn> -->
+          </q-btn>
         </div>
       </q-toolbar>
     </q-header>
@@ -185,15 +185,37 @@
     </q-drawer>
 
     <q-page-container>
-      <div class="row q-mt-xl justify-center q-gutter-md">
-        <div class="col-md-2">
-          <q-card bordered class="bg-grey-2">
+      <div class="bg-grey-2 row justify-center">
+        <q-toolbar :class="[$q.screen.gt.sm?'col-10 q-pa-xl':'col-12 q-pa-md', 'q-gutter-sm']">
+          <q-breadcrumbs>
+            <q-breadcrumbs-el icon="home" to="/" />
+            <q-breadcrumbs-el
+              label="User"
+              icon="person"
+              to="/"
+            />
+            <q-breadcrumbs-el
+              label="Orders"
+              icon="shopping_cart"
+            />
+          </q-breadcrumbs>
+        </q-toolbar>
+      </div>
+      <div
+        :class="[
+          'row justify-center q-gutter-sm'
+        ]"
+      >
+        <div class="col-md-2" v-if="$q.screen.gt.sm">
+          <q-card class="bg-grey-2">
             <q-card-section class="row justify-center">
               <q-avatar size="100px">
-                <img src="https://uploads.toptal.io/user/photo/1405543/large_7492aa6fde98b73aaae8ebe072d75ec9.jpg" />
+                <img
+                  src="https://uploads.toptal.io/user/photo/1405543/large_7492aa6fde98b73aaae8ebe072d75ec9.jpg"
+                />
               </q-avatar>
             </q-card-section>
-            
+
             <q-card-section
               class="column justify-center items-center q-pt-none"
             >
@@ -218,24 +240,14 @@
                   <q-item-section>Dashboard</q-item-section>
                 </q-item>
 
-                <q-item
-                  clickable
-                  v-ripple
-                  :active="active"
-                  active-class="text-orange"
-                >
+                <q-item clickable v-ripple :active="active">
                   <q-item-section avatar>
                     <q-icon name="person" />
                   </q-item-section>
                   <q-item-section>Profile</q-item-section>
                 </q-item>
 
-                <q-item
-                  clickable
-                  v-ripple
-                  :active="active"
-                  active-class="text-orange"
-                >
+                <q-item clickable v-ripple :active="active">
                   <q-item-section avatar>
                     <q-icon name="mail" />
                   </q-item-section>
@@ -246,7 +258,7 @@
                   clickable
                   v-ripple
                   :active="active"
-                  active-class="bg-teal-1 text-red"
+                  active-class="bg-teal-1"
                 >
                   <q-item-section avatar>
                     <q-icon name="favorite" />
@@ -260,12 +272,7 @@
                   <q-item-section>Orders</q-item-section>
                 </q-item>
 
-                <q-item
-                  clickable
-                  v-ripple
-                  :active="active"
-                  active-class="text-orange"
-                >
+                <q-item clickable v-ripple :active="active">
                   <q-item-section avatar>
                     <q-icon name="notification_important" />
                   </q-item-section>
@@ -276,19 +283,19 @@
                   clickable
                   v-ripple
                   :active="active"
-                  active-class="bg-teal-1 text-red"
+                  active-class="bg-teal-1"
                 >
                   <q-item-section avatar>
                     <q-icon name="account_balance_wallet" />
                   </q-item-section>
                   <q-item-section>Wallet</q-item-section>
                 </q-item>
-                
+
                 <q-item
                   clickable
                   v-ripple
                   :active="active"
-                  active-class="bg-teal-1 text-red"
+                  active-class="bg-teal-1"
                 >
                   <q-item-section avatar>
                     <q-icon name="login" />

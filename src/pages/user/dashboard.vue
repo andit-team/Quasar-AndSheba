@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md">
+  <div>
     <q-toolbar class="bg-primary text-white text-center shadow-2">
           <q-toolbar-title>My Order History</q-toolbar-title>
         </q-toolbar>

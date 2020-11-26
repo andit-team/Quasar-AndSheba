@@ -18,7 +18,7 @@
 
         <q-space v-if="!$q.screen.gt.sm"/>
 
-        <div :class="['YL__toolbar-input-container row', $q.screen.gt.sm ? 'q-ml-lg' : 'q-ml-xs' ]">
+        <div :class="['YL__toolbar-input-container row', $q.screen.gt.sm ? 'q-ml-lg' : 'q-ml-xs fit' ]">
           <q-input dense outlined square v-model="search" placeholder="Search services..." class="bg-white col" />
           <q-btn class="YL__toolbar-input-btn" color="grey-3" text-color="grey-8" icon="search" unelevated />
         </div>
@@ -48,10 +48,7 @@
             <q-avatar size="26px">
               <img src="https://cdn.quasar.dev/img/boy-avatar.png">
             </q-avatar>
-            <q-tooltip>
-              <q-btn  flat color="grey-8" icon="add" to="register"> রেজিস্ট্রেশন</q-btn>
-          <q-btn  flat color="grey-8" icon="person" to="login"> লগ ইন</q-btn>
-            </q-tooltip>
+            <q-tooltip>Account</q-tooltip>
           </q-btn>
         </div>
       </q-toolbar>
