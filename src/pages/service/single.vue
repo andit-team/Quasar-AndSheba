@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row justify-center q-gutter-xl q-mt-xl">
+    <div :class="[$q.screen.gt.sm?'q-mt-xl':'q-pa-md','row justify-center q-gutter-md ']">
       <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="text-h6 q-mb-xs">Home Garden Cleanning</div>
         <div class="row no-wrap items-center q-pb-md">
@@ -62,11 +62,11 @@
           <q-btn flat round color="accent" icon="bookmark" />
           <q-btn flat round color="primary" icon="share" />
         </q-item>
-        <q-separator />
+        <q-separator  v-if="$q.screen.gt.sm"/>
       </div>
       <div class="col-md-2 col-sm-6 col-xs-12">
         <q-card class="my-card">
-          <q-img
+          <q-img  v-if="$q.screen.gt.sm"
             src="https://uploads.toptal.io/user/photo/1405543/large_7492aa6fde98b73aaae8ebe072d75ec9.jpg"
           />
 
@@ -79,8 +79,8 @@
               style="top: 0; right: 12px; transform: translateY(-50%);"
             />
 
-            <div class="row no-wrap items-center">
-              <div class="col text-h6 ellipsis">
+            <div class="row no-wrap items-right" >
+              <div class="col text-h6 ellipsis" >
                 Shariful Islam
               </div>
               <div

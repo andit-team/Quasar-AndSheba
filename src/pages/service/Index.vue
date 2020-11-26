@@ -1,24 +1,152 @@
 <template>
   <div>
-    <!-- Flex Test -->
-    <!--<div class="row justify-center items-center bg-grey-2 q-pa-xl">
-        <div class="col-4 bg-red-1 row"><span>asdasd</span></div>
-        <div class="col-4 bg-red-2 row justify-end"><img src="https://andsheba.com/_nuxt/img/logo.0f218c1.png" alt="" width="200px" class="bg-blue-1"></div>
-      </div> -->
     <!-- Search Bar -->
-    <div class="row justify-center q-mt-xl q-mb-md">
-      <q-input square outlined label="Select service type" class="col-3" />
-      <q-input square outlined label="Enter a location" class="col-3" />
-      <q-btn color="teal" class="col-2">
-        <q-icon left size="2em" name="search" />
+    <div
+      :class="[
+        $q.screen.gt.sm ? 'q-mt-xl ' : 'q-mt-md q-pa-xs',
+        'row justify-center q-mb-md'
+      ]"
+    >
+      <q-btn-dropdown
+        class="glossy col-xs-2 col-sm-2"
+        color="primary"
+        icon="filter_alt"
+        v-if="!$q.screen.gt.sm"
+      >
+        <div class="row justify-center q-pa-xs">
+          <div class="column fit">
+            <q-list>
+              <q-item-label header class="bg-grey-3">কাজের ধরন</q-item-label>
+
+              <q-item tag="label" v-ripple>
+                <q-item-section side top>
+                  <q-radio v-model="color" val="cyan" color="cyan" />
+                </q-item-section>
+
+                <q-item-section>
+                  <q-item-label>মেরামত</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-item tag="label" v-ripple>
+                <q-item-section side top>
+                  <q-radio v-model="color" val="red" color="red" />
+                </q-item-section>
+
+                <q-item-section>
+                  <q-item-label>স্থাপন</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-item tag="label" v-ripple>
+                <q-item-section side top>
+                  <q-radio v-model="color" val="green" color="green" />
+                </q-item-section>
+
+                <q-item-section>
+                  <q-item-label>রক্ষণাবেক্ষণ</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-item tag="label" v-ripple>
+                <q-item-section side top>
+                  <q-radio v-model="color2" val="green" color="green" />
+                </q-item-section>
+
+                <q-item-section>
+                  <q-item-label>সমাবেশ</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-separator spaced />
+
+              <q-item-label header class="bg-grey-3">ফ্রিকয়েন্সি</q-item-label>
+
+              <q-item tag="label" v-ripple>
+                <q-item-section side top>
+                  <q-checkbox v-model="check2" />
+                </q-item-section>
+
+                <q-item-section>
+                  <q-item-label>সপ্তাহে ১ বার</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item tag="label" v-ripple>
+                <q-item-section side top>
+                  <q-checkbox v-model="check3" />
+                </q-item-section>
+
+                <q-item-section>
+                  <q-item-label>সপ্তাহে ৫ বার</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item tag="label" v-ripple>
+                <q-item-section side top>
+                  <q-checkbox v-model="check1" />
+                </q-item-section>
+
+                <q-item-section>
+                  <q-item-label>সপ্তাহে ৭ বার</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-separator spaced />
+              <q-item-label header class="bg-grey-3"
+                >মূল্য নির্ধারণ</q-item-label
+              >
+
+              <q-item>
+                <q-item-section side>
+                  <q-icon color="teal" name="request_quote" />
+                </q-item-section>
+                <q-item-section>
+                  <q-range
+                    v-model="rateRange"
+                    :min="5"
+                    :max="100"
+                    label
+                    color="teal"
+                  />
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </div>
+
+          <div class="column q-pa-sm">
+            <q-btn
+              color="secondary"
+              label="Apply Filter"
+              push
+              size="md"
+              v-close-popup
+            />
+          </div>
+        </div>
+      </q-btn-dropdown>
+      <q-input
+        square
+        dense
+        outlined
+        label="Select service type"
+        class="col-xs-4 col-sm-3"
+      />
+      <q-input
+        square
+        dense
+        outlined
+        label="Enter a location"
+        class="col-xs-4 col-sm-3"
+      />
+      <q-btn color="teal" class="col-xs-2 col-sm-2">
+        <q-icon left name="search" />
         <div v-if="$q.screen.gt.sm">খুঁজুন</div>
       </q-btn>
     </div>
     <div class="row justify-center">
-      <q-separator vertical />
-      <div class="col-md-2 col-sm-12 col-xs-12">
+      <q-separator vertical v-if="$q.screen.gt.sm" />
+      <div class="col-md-2 col-sm-12 col-xs-12" v-if="$q.screen.gt.sm">
         <q-toolbar class="bg-primary text-white shadow-2">
-          <q-toolbar-title>Filter</q-toolbar-title>
+          <q-toolbar-title>Search Filter</q-toolbar-title>
         </q-toolbar>
         <q-list padding>
           <q-item-label header>Extra Service 1</q-item-label>
@@ -106,35 +234,57 @@
           </q-item>
         </q-list>
       </div>
-      <q-separator vertical />
+      <q-separator vertical v-if="$q.screen.gt.sm" />
+
       <div class="col-md-6 col-sm-12 col-xs-12">
         <!-- Search Result -->
-        <div class="q-ml-md">
-          <q-card class="my-card q-mb-md">
-            <q-card-section horizontal>
+        <div
+          :class="[$q.screen.gt.sm ? 'q-ml-md' : null, 'row justify-center']"
+        >
+          <q-card class="my-card q-mb-md col-md-6 col-sm-6 col-xs-12">
+            <q-card-section>
               <q-img
                 class="col-4"
                 src="https://cdn.citymapia.com/assets/business/5204/portfolio/21116/5204_637165610990158685.jpg?rendered=true"
-              />
+              >
+                <div class="absolute-bottom text-left">
+                  <div class="text-h6 q-mb-xs">Weadding Makeover & Closet</div>
+                  <div class="row no-wrap items-center">
+                    <q-rating
+                      size="28px"
+                      v-model="stars"
+                      :max="5"
+                      color="yellow"
+                    />
+                    <span class="text-caption text-grey q-ml-sm"
+                      >4.2 (551)</span
+                    >
+                  </div>
+                </div>
+              </q-img>
+              <q-card-section>
+                <q-btn
+                  fab
+                  color="primary"
+                  icon="monetization_on"
+                  class="absolute"
+                  style="top: 0; right: 12px; transform: translateY(-50%);"
+                />
 
-              <q-card-section class="col-5">
-                <div class="text-h6 q-mb-xs">Weadding Makeover & Closet</div>
-                <div class="row no-wrap items-center q-pb-md">
-                  <q-rating
-                    size="28px"
-                    v-model="stars"
-                    :max="5"
-                    color="red"
-                  />
-                  <span class="text-caption text-grey q-ml-sm">4.2 (551)</span>
+                <div class="row no-wrap items-center">
+                  <div class="col text-h6 ellipsis">
+                    <q-icon color="green" name="emoji_events" size="sm" /> Top
+                    Rated
+                  </div>
+                  <div
+                    class="col-auto text-grey text-caption q-pt-md row no-wrap items-center"
+                  >
+                    2000TK
+                  </div>
                 </div>
-                <div class="text-subtitle1 q-mb-sm">
-                  <q-icon color="green" name="emoji_events" size="sm" /> Top Rated
-                </div>
-                <div class="text-caption text-grey">
+                <div class="text-caption text-grey q-mt-xs">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Facilis eligendi tempore voluptatibus quae ipsam rerum eum
-                  magni illo
+                  Facilis eligendi tempore voluptatibus quae ipsam rerum
                 </div>
                 <div class="text-subtitle3 q-mt-sm">
                   <q-icon name="place" size="xs" /> 32 Choto Mirzapur, Khulna,
@@ -143,27 +293,28 @@
                 <div class="text-subtitle3 q-mt-sm">
                   <q-icon name="supervised_user_circle" size="xs" /> Hired
                   <span>22</span> Times
-                </div>
-              </q-card-section>
 
-              <q-card-section class="col-3 column justify-center items-center">
-                <div class="text-h4">BDT</div>
-                <div class="text-h5">170 TK / Hour</div>
-                <div class="text-h6">(আনুমানিক খরচ)</div>
+                  <!-- <q-btn flat round color="balck" icon="mail" />
+                <q-btn flat round color="red" icon="favorite" />
+                <q-btn flat round color="accent" icon="bookmark" />
+                <q-btn flat round color="primary" icon="share" /> -->
+                </div>
               </q-card-section>
             </q-card-section>
 
             <q-separator />
 
             <q-card-actions>
-              <q-item class="col-6">
+              <q-item class="col-7">
                 <q-item-section avatar>
                   <q-avatar>
                     <div
                       class="absolute bg-green"
                       style="right: 0px;transform: translateY(-50%);width: 12px;height: 12px;bottom: -8px;border-radius: inherit;"
                     ></div>
-                    <img src="https://i.pinimg.com/564x/59/e6/9d/59e69d382e60e5dc39905a774fa7284a.jpg" />
+                    <img
+                      src="https://i.pinimg.com/564x/59/e6/9d/59e69d382e60e5dc39905a774fa7284a.jpg"
+                    />
                   </q-avatar>
                 </q-item-section>
 
@@ -174,58 +325,66 @@
                     Professional Artist
                   </q-item-label>
                 </q-item-section>
-
-                <q-btn flat round color="balck" icon="mail" />
-                <q-btn flat round color="red" icon="favorite" />
-                <q-btn flat round color="accent" icon="bookmark" />
-                <q-btn flat round color="primary" icon="share" />
               </q-item>
 
-              <q-item class="col-6 justify-end q-gutter-md">
-                <q-btn
-                  color="primary"
-                  label="Order Now"
-                  icon="add_shopping_cart"
-                  size="md"
-                  class="q-pa-xs"
-                />
+              <q-item class="col-5 justify-end">
                 <q-btn
                   to="service/single"
                   color="secondary"
-                  label="View Details"
+                  label="Details"
                   icon="visibility"
                   size="md"
                   class="q-pa-xs"
                 />
               </q-item>
+
             </q-card-actions>
           </q-card>
-
-          <q-card class="my-card q-mb-md">
-            <q-card-section horizontal>
+          
+          <q-card class="my-card q-mb-md col-md-6 col-sm-6 col-xs-12">
+            <q-card-section>
               <q-img
                 class="col-4"
                 src="https://i2.wp.com/movingtips.wpengine.com/wp-content/uploads/2020/08/home-cleaning-service.jpg?fit=1024%2C684&ssl=1"
-              />
+              >
+                <div class="absolute-bottom text-left">
+                  <div class="text-h6 q-mb-xs">Home Garden Cleanning</div>
+                  <div class="row no-wrap items-center">
+                    <q-rating
+                      size="28px"
+                      v-model="stars"
+                      :max="5"
+                      color="yellow"
+                    />
+                    <span class="text-caption text-grey q-ml-sm"
+                      >4.5 (221)</span
+                    >
+                  </div>
+                </div>
+              </q-img>
+              <q-card-section>
+                <q-btn
+                  fab
+                  color="primary"
+                  icon="monetization_on"
+                  class="absolute"
+                  style="top: 0; right: 12px; transform: translateY(-50%);"
+                />
 
-              <q-card-section class="col-5">
-                <div class="text-h6 q-mb-xs">Home Garden Cleanning</div>
-                <div class="row no-wrap items-center q-pb-md">
-                  <q-rating
-                    size="28px"
-                    v-model="stars"
-                    :max="5"
-                    color="red"
-                  />
-                  <span class="text-caption text-grey q-ml-sm">4.2 (551)</span>
+                <div class="row no-wrap items-center">
+                  <div class="col text-h6 ellipsis">
+                    <q-icon color="green" name="emoji_events" size="sm" /> Top
+                    Rated
+                  </div>
+                  <div
+                    class="col-auto text-grey text-caption q-pt-md row no-wrap items-center"
+                  >
+                    1500TK
+                  </div>
                 </div>
-                <div class="text-subtitle1 q-mb-sm">
-                  <q-icon color="green" name="emoji_events" size="sm" /> Top Rated
-                </div>
-                <div class="text-caption text-grey">
+                <div class="text-caption text-grey q-mt-xs">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Facilis eligendi tempore voluptatibus quae ipsam rerum eum
-                  magni illo
+                  Facilis eligendi tempore voluptatibus quae ipsam rerum
                 </div>
                 <div class="text-subtitle3 q-mt-sm">
                   <q-icon name="place" size="xs" /> 32 Choto Mirzapur, Khulna,
@@ -234,27 +393,28 @@
                 <div class="text-subtitle3 q-mt-sm">
                   <q-icon name="supervised_user_circle" size="xs" /> Hired
                   <span>22</span> Times
-                </div>
-              </q-card-section>
 
-              <q-card-section class="col-3 column justify-center items-center">
-                <div class="text-h4">BDT</div>
-                <div class="text-h5">80 TK / Hour</div>
-                <div class="text-h6">(আনুমানিক খরচ)</div>
+                  <!-- <q-btn flat round color="balck" icon="mail" />
+                <q-btn flat round color="red" icon="favorite" />
+                <q-btn flat round color="accent" icon="bookmark" />
+                <q-btn flat round color="primary" icon="share" /> -->
+                </div>
               </q-card-section>
             </q-card-section>
 
             <q-separator />
 
             <q-card-actions>
-              <q-item class="col-6">
+              <q-item class="col-7">
                 <q-item-section avatar>
                   <q-avatar>
                     <div
                       class="absolute bg-green"
                       style="right: 0px;transform: translateY(-50%);width: 12px;height: 12px;bottom: -8px;border-radius: inherit;"
                     ></div>
-                    <img src="https://uploads.toptal.io/user/photo/1405543/large_7492aa6fde98b73aaae8ebe072d75ec9.jpg" />
+                    <img
+                      src="https://uploads.toptal.io/user/photo/1405543/large_7492aa6fde98b73aaae8ebe072d75ec9.jpg"
+                    />
                   </q-avatar>
                 </q-item-section>
 
@@ -265,25 +425,13 @@
                     Professional Plumber
                   </q-item-label>
                 </q-item-section>
-
-                <q-btn flat round color="balck" icon="mail" />
-                <q-btn flat round color="red" icon="favorite" />
-                <q-btn flat round color="accent" icon="bookmark" />
-                <q-btn flat round color="primary" icon="share" />
               </q-item>
 
-              <q-item class="col-6 justify-end q-gutter-md">
-                <q-btn
-                  color="primary"
-                  label="Order Now"
-                  icon="add_shopping_cart"
-                  size="md"
-                  class="q-pa-xs"
-                />
+              <q-item class="col-5 justify-end">
                 <q-btn
                   to="service/single"
                   color="secondary"
-                  label="View Details"
+                  label="Details"
                   icon="visibility"
                   size="md"
                   class="q-pa-xs"

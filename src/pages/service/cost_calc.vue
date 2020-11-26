@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="column justify-center content-center items-center q-mt-xl">
+    <div class="row justify-center content-center items-center q-mt-xl">
       <q-img
         width="10%"
         src="https://uploads.toptal.io/user/photo/1405543/large_7492aa6fde98b73aaae8ebe072d75ec9.jpg"
