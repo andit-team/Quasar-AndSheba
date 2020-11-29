@@ -46,7 +46,7 @@
           </q-btn-dropdown>
           <q-btn round flat>
             <q-avatar size="26px">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+              <img src="https://avatars3.githubusercontent.com/u/38374712?s=400&v=4">
             </q-avatar>
             <q-tooltip>Account</q-tooltip>
           </q-btn>
@@ -63,13 +63,13 @@
     >
       <q-scroll-area class="fit">
         <q-list padding>
-        <q-img src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
+        <q-img src="https://thumbs.dreamstime.com/b/sanitizing-surfaces-cleaning-home-kitchen-table-disinfectant-spray-bottle-washing-surface-towel-gloves-covid-prevention-182806135.jpg" style="height: 150px">
           <div class="absolute-bottom bg-transparent">
             <q-avatar size="56px" class="q-mb-sm">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+              <img src="https://avatars3.githubusercontent.com/u/38374712?s=400&v=4">
             </q-avatar>
-            <div class="text-weight-bold">Razvan Stoenescu</div>
-            <div>@rstoenescu</div>
+            <div class="text-weight-bold">Shariful Islam</div>
+            <div>@sharifulinfo</div>
           </div>
         </q-img>
           <q-item v-for="link in withLogin" :key="link.text" :to="link.route" v-ripple clickable>

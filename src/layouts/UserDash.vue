@@ -78,7 +78,7 @@
           </q-btn-dropdown>
           <q-btn round flat>
             <q-avatar size="26px">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+              <img src="https://avatars3.githubusercontent.com/u/38374712?s=400&v=4" />
             </q-avatar>
             <q-tooltip>Account</q-tooltip>
           </q-btn>
@@ -96,15 +96,15 @@
       <q-scroll-area class="fit">
         <q-list padding>
           <q-img
-            src="https://cdn.quasar.dev/img/material.png"
+            src="https://img.freepik.com/free-vector/abstract-technology-background-science-connecting-technology_42705-96.jpg?size=626&ext=jpg"
             style="height: 150px"
           >
             <div class="absolute-bottom bg-transparent">
               <q-avatar size="56px" class="q-mb-sm">
-                <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+                <img src="https://avatars3.githubusercontent.com/u/38374712?s=400&v=4" />
               </q-avatar>
-              <div class="text-weight-bold">Razvan Stoenescu</div>
-              <div>@rstoenescu</div>
+              <div class="text-weight-bold">Shariful Islam</div>
+              <div>@sharifulinfo</div>
             </div>
           </q-img>
           <q-item
@@ -211,7 +211,7 @@
             <q-card-section class="row justify-center">
               <q-avatar size="100px">
                 <img
-                  src="https://uploads.toptal.io/user/photo/1405543/large_7492aa6fde98b73aaae8ebe072d75ec9.jpg"
+                  src="https://avatars3.githubusercontent.com/u/38374712?s=400&v=4"
                 />
               </q-avatar>
             </q-card-section>
@@ -246,7 +246,12 @@
                   </q-item-section>
                   <q-item-section>Profile</q-item-section>
                 </q-item>
-
+                <q-item clickable v-ripple :active="active">
+                  <q-item-section avatar>
+                    <q-icon name="notification_important" />
+                  </q-item-section>
+                  <q-item-section>Notification</q-item-section>
+                </q-item>
                 <q-item clickable v-ripple :active="active">
                   <q-item-section avatar>
                     <q-icon name="mail" />
@@ -254,6 +259,28 @@
                   <q-item-section>Inbox</q-item-section>
                 </q-item>
 
+                
+                <q-item clickable v-ripple :active="active">
+                  <q-item-section avatar>
+                    <q-icon name="add_shopping_cart" />
+                  </q-item-section>
+                  <q-item-section>My Orders</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple :active="active">
+                  <q-item-section avatar>
+                    <q-icon name="add_task" />
+                  </q-item-section>
+                  <q-item-section>New Service</q-item-section>
+                </q-item>
+                
+                <q-item clickable v-ripple :active="active">
+                  <q-item-section avatar>
+                    <q-icon name="design_services" />
+                  </q-item-section>
+                  <q-item-section>My Services</q-item-section>
+                </q-item>
+
+                
                 <q-item
                   clickable
                   v-ripple
@@ -265,20 +292,6 @@
                   </q-item-section>
                   <q-item-section>Favorites</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple :active="active">
-                  <q-item-section avatar>
-                    <q-icon name="add_shopping_cart" />
-                  </q-item-section>
-                  <q-item-section>Orders</q-item-section>
-                </q-item>
-
-                <q-item clickable v-ripple :active="active">
-                  <q-item-section avatar>
-                    <q-icon name="notification_important" />
-                  </q-item-section>
-                  <q-item-section>Notification</q-item-section>
-                </q-item>
-
                 <q-item
                   clickable
                   v-ripple

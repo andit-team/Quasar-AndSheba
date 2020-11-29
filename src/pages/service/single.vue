@@ -44,7 +44,7 @@
                 style="right: 0px;transform: translateY(-50%);width: 12px;height: 12px;bottom: -8px;border-radius: inherit;"
               ></div>
               <img
-                src="https://uploads.toptal.io/user/photo/1405543/large_7492aa6fde98b73aaae8ebe072d75ec9.jpg"
+                src="https://avatars3.githubusercontent.com/u/38374712?s=400&v=4"
               />
             </q-avatar>
           </q-item-section>
@@ -67,7 +67,7 @@
       <div class="col-md-2 col-sm-6 col-xs-12">
         <q-card class="my-card">
           <q-img  v-if="$q.screen.gt.sm"
-            src="https://uploads.toptal.io/user/photo/1405543/large_7492aa6fde98b73aaae8ebe072d75ec9.jpg"
+            src="https://avatars3.githubusercontent.com/u/38374712?s=400&v=4"
           />
 
           <q-card-section>

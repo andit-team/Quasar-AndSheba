@@ -1,24 +1,24 @@
 <template>
   <div>
-    <div class="row justify-center content-center items-center q-mt-xl">
-      <q-img
+    <div class="column justify-center content-center items-center q-mt-xl">
+      <q-img v-if="$q.screen.gt.sm"
         width="10%"
-        src="https://uploads.toptal.io/user/photo/1405543/large_7492aa6fde98b73aaae8ebe072d75ec9.jpg"
+        src="https://avatars3.githubusercontent.com/u/38374712?s=400&v=4"
       />
-      <div class="text-h4">
+      <div :class="[$q.screen.gt.sm?'text-h4':'text-h5 text-center']">
         Tell us about your project for more accurate cost estimation
       </div>
-      <div class="text-h6 text-gray">
+      <div class="text-h6 text-gray" v-if="$q.screen.gt.sm">
         A little info will help the pro understand your project
       </div>
     </div>
-    <div class="row q-mt-xl justify-center q-gutter-md">
+    <div class="row q-my-xl q-px-lg justify-center q-gutter-md">
       <div class="col-md-7 col-sm-6 col-xs-12">
         <q-card flat bordered class="q-mb-md">
           <q-card-section>
             <div class="text-h6">1. Where is the tile work being done?</div>
           </q-card-section>
-          <q-card-section class="q-gutter-sm row justify-between">
+          <q-card-section class="q-gutter-sm row">
             <q-checkbox v-model="kitchen" label="Kitchen" />
             <q-checkbox v-model="washroom" label="Washroom" />
             <q-checkbox v-model="hall" label="Hallway" />
@@ -31,7 +31,7 @@
           <q-card-section>
             <div class="text-h6">2. Where is the tile work being done?</div>
           </q-card-section>
-          <q-card-section class="q-gutter-sm row justify-between">
+          <q-card-section class="q-gutter-sm row">
             <q-checkbox v-model="kitchen" label="Kitchen" />
             <q-checkbox v-model="washroom" label="Washroom" />
             <q-checkbox v-model="hall" label="Hallway" />
@@ -44,7 +44,7 @@
           <q-card-section>
             <div class="text-h6">3. Where is the tile work being done?</div>
           </q-card-section>
-          <q-card-section class="q-gutter-sm row justify-between">
+          <q-card-section class="q-gutter-sm row">
             <q-checkbox v-model="kitchen" label="Kitchen" />
             <q-checkbox v-model="washroom" label="Washroom" />
             <q-checkbox v-model="hall" label="Hallway" />
@@ -57,7 +57,7 @@
           <q-card-section>
             <div class="text-h6">4. Where is the tile work being done?</div>
           </q-card-section>
-          <q-card-section class="q-gutter-sm row justify-between">
+          <q-card-section class="q-gutter-sm row">
             <q-checkbox v-model="kitchen" label="Kitchen" />
             <q-checkbox v-model="washroom" label="Washroom" />
             <q-checkbox v-model="hall" label="Hallway" />
