@@ -10,7 +10,7 @@
             <div class="row">
               <q-input square outlined label="Select service type"/>
               <q-input square outlined label="Enter a location"/>
-              <q-btn color="teal">
+              <q-btn color="teal" to="/service">
                 <q-icon left size="2em" name="search" />
                 <div v-if="$q.screen.gt.sm">খুঁজুন</div>
               </q-btn>
