@@ -132,7 +132,6 @@
 </template>
 
 <script>
-import { fabYoutube } from '@quasar/extras/fontawesome-v5'
 export default {
   name: 'MyLayout',
   data () {
