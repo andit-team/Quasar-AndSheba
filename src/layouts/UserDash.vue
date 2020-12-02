@@ -233,14 +233,29 @@
             <q-separator inset />
             <q-card-section class="column justify-center q-pa-md">
               <q-list bordered separator>
-                <q-item clickable v-ripple :active="active">
+                <q-item clickable v-ripple to="/user" :active="active">
                   <q-item-section avatar>
                     <q-icon name="dashboard" />
                   </q-item-section>
                   <q-item-section>Dashboard</q-item-section>
                 </q-item>
 
-                <q-item clickable v-ripple :active="active">
+                  <q-item clickable v-ripple to="/user/services" :active="active">
+                      <q-item-section avatar>
+                          <q-icon name="design_services" />
+                      </q-item-section>
+                      <q-item-section>My Services</q-item-section>
+                  </q-item>
+
+                  <q-item clickable v-ripple to="/user/booking_list" :active="active">
+                      <q-item-section avatar>
+                          <q-icon name="far fa-calendar-check" />
+                      </q-item-section>
+                      <q-item-section>Booking List</q-item-section>
+                  </q-item>
+
+
+                  <q-item clickable v-ripple :active="active">
                   <q-item-section avatar>
                     <q-icon name="person" />
                   </q-item-section>
@@ -259,7 +274,7 @@
                   <q-item-section>Inbox</q-item-section>
                 </q-item>
 
-                
+
                 <q-item clickable v-ripple :active="active">
                   <q-item-section avatar>
                     <q-icon name="add_shopping_cart" />
@@ -272,7 +287,7 @@
                   </q-item-section>
                   <q-item-section>New Service</q-item-section>
                 </q-item>
-                
+
                 <q-item clickable v-ripple :active="active">
                   <q-item-section avatar>
                     <q-icon name="design_services" />
@@ -280,7 +295,7 @@
                   <q-item-section>My Services</q-item-section>
                 </q-item>
 
-                
+
                 <q-item
                   clickable
                   v-ripple

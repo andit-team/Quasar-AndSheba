@@ -25,6 +25,8 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/user/Dashboard.vue') },
       { path: 'dashboard', component: () => import('pages/user/Dashboard.vue') },
+      { path: 'services', component: () => import('pages/user/Services.vue') },
+      { path: 'booking_list', component: () => import('pages/user/BookingList.vue') },
     ]
   },
   // Always leave this as last one,
