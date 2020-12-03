@@ -268,6 +268,12 @@
                       </q-item-section>
                       <q-item-section>Wallet</q-item-section>
                   </q-item>
+                  <q-item clickable v-ripple to="/user/subscription" :active="active">
+                      <q-item-section avatar>
+                          <q-icon name="far fa-calendar-alt" />
+                      </q-item-section>
+                      <q-item-section>Subscription</q-item-section>
+                  </q-item>
 
 
                 <q-item clickable v-ripple :active="active">

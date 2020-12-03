@@ -29,6 +29,7 @@ const routes = [
       { path: 'booking_list', component: () => import('pages/user/BookingList.vue') },
       { path: 'profile', component: () => import('pages/user/Profile.vue') },
       { path: 'wallet', component: () => import('pages/user/Wallet.vue') },
+      { path: 'subscription', component: () => import('pages/user/Subscription.vue') },
     ]
   },
   // Always leave this as last one,
