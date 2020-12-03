@@ -6,7 +6,7 @@
   "author": "Shovon Das <shovondas26@gmail.com>",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "dev": "quasar dev"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",

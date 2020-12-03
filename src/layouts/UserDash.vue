@@ -255,12 +255,21 @@
                   </q-item>
 
 
-                  <q-item clickable v-ripple :active="active">
+                  <q-item clickable v-ripple to="/user/profile" :active="active">
                   <q-item-section avatar>
                     <q-icon name="person" />
                   </q-item-section>
                   <q-item-section>Profile</q-item-section>
                 </q-item>
+
+                  <q-item clickable v-ripple to="/user/wallet" :active="active">
+                      <q-item-section avatar>
+                          <q-icon name="fas fa-file-invoice-dollar" />
+                      </q-item-section>
+                      <q-item-section>Wallet</q-item-section>
+                  </q-item>
+
+
                 <q-item clickable v-ripple :active="active">
                   <q-item-section avatar>
                     <q-icon name="notification_important" />
@@ -286,13 +295,6 @@
                     <q-icon name="add_task" />
                   </q-item-section>
                   <q-item-section>New Service</q-item-section>
-                </q-item>
-
-                <q-item clickable v-ripple :active="active">
-                  <q-item-section avatar>
-                    <q-icon name="design_services" />
-                  </q-item-section>
-                  <q-item-section>My Services</q-item-section>
                 </q-item>
 
 
