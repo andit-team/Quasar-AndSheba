@@ -18,5 +18,5 @@ quasar dev
 quasar build
 ```
 
-### Customize the configuration
+### Customize
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
